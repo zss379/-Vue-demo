@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="vue2.css">
+</head>
+<body>
+    <div id="main">
+        <header>
+        	<span v-for="(item,index) in items" v-bind:class="{'show':item.active}" v-on:click="clickEvent(index)">{{ item.name }}</span>
+        </header>
+        <ul>
+           <li v-for="mess in message" id="test">
+            <ul v-bind:class="{'change': items[0].active}">
+            	<li>Vue更新作者:  {{ mess.commit.author.name}}</li>
+            	<li>作者Email:  {{ mess.commit.author.email}}</li>
+            	<li> 本次Vue更新日期:  {{ mess.commit.author.date}}</li>
+            </ul>
+            <ul v-bind:class="{'change': items[1].active}">
+            	<li>本次Vue更新日期:  {{ mess.commit.author.date}}</li>
+            	<li>gitHub地址:</li>
+            	<li>{{ mess.html_url }}</li>
+            </ul>
+           </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="Vue.js"></script>
+    <script type="text/javascript" src="vue2.js"></script>
+   
+</body>
+
+</html>
